@@ -1,0 +1,23 @@
+#ueberpruefe Qualitaet der Sequenz
+FastQC/fastqc M16_S3_L001_R2_001.fastq.gz
+
+#Asseblierung
+pear -f M16_S3_L001_R1_001.fastq.gz -r M16_S3_L001_R2_001.fastq.gz -q 20 -v 50 -o M16
+
+#quality filtering und umschreiben in fasta datei
+./fastq_quality_filter -Q33 -q 30 -p 90  -i ../../M16.assembled.fastq | ./fastq_to_fasta -Q33 -o ../../M16Q30.fasta
+
+#primer trimming 
+grep -E "^CACAAATCCTAACAGGACTCC.{271}CTGAGGTGCTACAGTCATCA$" M16Q30.fasta | sed -r 's/^[A-Z]{21}//' | sed -r 's/[A-Z]{20}$//' | awk '{print ">M16\n"$0}' > M16.Trim.fasta
+
+#dereplication
+usearch -fastx_uniques M16.Trim.fasta -fastaout M16.uniq.fasta -sizeout
+
+#otu clustering, entfernen von sequenzierfehlern
+usearch -unoise3 M16.uniq.fasta -zotus M16.OTU.fasta
+
+#batch assembly
+ls *fastq.gz | grep "_R1_" |awk '{print "pear -v 50 -q 20 -j 20 -f "$0" -r "$0" -o "$0 }' | sed 's/_R1_/_R2_/2' | sed -r 's/_S[0-9]{1,2}_L001_R1_001.fastq.gz//2' > pear.sh
+
+#make executable
+chmod +x pear.sh

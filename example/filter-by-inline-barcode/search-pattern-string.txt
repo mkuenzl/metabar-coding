@@ -1,0 +1,1 @@
+grep -E -B1 "^BARCODE" FileName.fasta > NewFile.fasta

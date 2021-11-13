@@ -1,0 +1,5 @@
+grep -E -B1 "^TAGAACAGGCTCCTCTAG.*TTAGATACCCCACTATGC$" 1_734_S1_L001_paired.assembled_Q30.fasta > 1_734_S1_L001_paired.assembled_Q30_patternMatch.fasta
+
+forwardPrimer.*reverseComplementReversePrimer
+
+grep -E -B1 "^TAGAACAGGCTCCTCTAG.*GCATAGTGGGGTATCTAA$" 1_734_S1_L001_paired.assembled_Q30.fasta > 1_734_S1_L001_paired.assembled_Q30_patternMatch.fasta

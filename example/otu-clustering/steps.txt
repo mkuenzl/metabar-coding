@@ -1,0 +1,7 @@
+Dereplication of sequence pool merge and count identical sequences
+
+usearch -fastx_uniques 1_734_S1_L001_paired.assembled_Q30_patternMatch_trimmed.fasta -fastaout 1_734_S1_L001_paired.assembled_Q30_patternMatch_trimmed.uniq.fasta -sizeout
+
+OTU clustering and generation of centroid sequence database based on divergence cuttoff
+
+usearch -cluster_otus 1_734_S1_L001_paired.assembled_Q30_patternMatch_trimmed.uniq.fasta -otus 1_734_S1_L001_paired.assembled_Q30_patternMatch_trimmed.uniq.otus.fasta -minsize 10
