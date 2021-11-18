@@ -31,8 +31,11 @@ But they suck.
 
   - Blastn (Assign taxonomy to OTUs) <br/>
     https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download
+
+  - Blastn Taxonomy File (add folder of unpacked file to path with "export BLASTDB=path/to/folder")
+    ftp://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz
    
-3. Some understading of shell scripts. 
+3. Some understanding of shell scripts. 
 
 4. Your Primertable
 
