@@ -34,6 +34,15 @@ But they suck.
    
 3. Some understading of shell scripts. 
 
+4. Your Primertable
+
+| species  | primer | direction | sequence | amplicon size |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Newts	| 12S V5 Primer	| Forward	| TAGAACAGGCTCCTCTAG	| Min: 73BP Max:110BP |
+|  |                | Reverse	| TTAGATACCCCACTATGC |
+| Fire Salamander	| 12S Primer 	| Forward	| ACACCGCCCGTCACCCT	| Mean: 51BP Max 100BPG4 |
+||                            | Reverse	| GTAYACTTACCATGTTACGACTT |
+
 ## Follow the example
 
 1. Check the quality <br/>
@@ -76,9 +85,16 @@ grep –E –B1 “^Barcode” FILENAME.fasta > NEWFILE.fasta
         ```
         usearch -cluster_otus FILE.uniq.fasta –otus FILE.otus.fasta  -relabel OUT –minsize 10
         ```
-9. BLAST against NCBI database <br/> 
+9. BLAST against NCBI database <br/>
+   QUERY.fasta are equal to finale fasta file with DNA code  <br/> 
+   Output format: (https://www.metagenomics.wiki/tools/blast/blastn-output-format-6) <br/>
+   FORMATTER "6 staxids qseqid sseqid pident evalue sscinames scomnames sblastnames sskingdoms stitle salltitles sstrand"
 ```
-blastn –db FILE.fasta –query QUERY.fasta –outfmt 6 –max_target_seqs 1 –out FILE.out
+Run on your PC with a database
+blastn –db database.fasta –query QUERY.fasta –outfmt 6 –max_target_seqs 1 –out FILE.out
+
+Run on Blast Webserver with their databases 
+blastn –db nt –query QUERY.fasta –outfmt FORMATTER –max_target_seqs 1 –out FILE.out -remote
 ```
 10. Generate OTU table by comparing all sequences against  database <br/> 
 ```
