@@ -21,3 +21,6 @@ ls *fastq.gz | grep "_R1_" |awk '{print "pear -v 50 -q 20 -j 20 -f "$0" -r "$0" 
 
 #make executable
 chmod +x pear.sh
+
+#blastn (queries are equal to finale fasta lines with DNA code) output format (https://www.metagenomics.wiki/tools/blast/blastn-output-format-6)
+blastn –db nt –query query.fasta –outfmt "6 staxids qseqid sseqid pident evalue sscinames scomnames sblastnames sskingdoms stitle salltitles sstrand" –max_target_seqs 1 –out query.out -remote
