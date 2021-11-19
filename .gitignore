@@ -1,0 +1,7 @@
+# Custom
+
+.idea
+venv
+
+# Mac Storage Files
+*.DS_Store
