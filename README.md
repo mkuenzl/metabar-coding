@@ -58,35 +58,35 @@ pear -f FW.fastq.gz -r RV.fastq.gz -q 20 -v 50 -o FILENAME
 ```
 3. Quality filter, remove with less than 90% bases with Q30 or higher <br/> 
 ```
-fastq_quality_filter –Q33 –p 90 –q 30 –i  FILE.fastq –o FILE_Q30.fastq
+fastq_quality_filter -Q33 -p 90 -q 30 -i  FILE.fastq -o FILE_Q30.fastq
 ```
 4. Transform fastq file to fasta format <br/> 
 ```
-fastq_to_fasta –Q33 –i FILE_Q30.fastq–o FILENAME.fasta
+fastq_to_fasta -Q33 -i FILE_Q30.fastq -o FILENAME.fasta
 ```
 5. Filter all sequences from fasta file <br/> 
 ```
-grep –E –B1 “^forwardPrimerSequence.*reverseComplementOfReversePrimerSequence$” FILE.fasta > NEWFILE.fasta
+grep -E -B1 “^forwardPrimerSequence.*reverseComplementOfReversePrimerSequence$” FILE.fasta > NEWFILE.fasta
 ```
  (Degenerate primers GTAAC[A-Z]GTATA[A-Z]CCCTTG or GTAAC.GTATA.CCCTTG)
 6. Trim off primer sequences <br/> 
 ```
-grep –E –B1 “^forwardPrimerSequence.*reverseComplementOfReversePrimerSequence$” FILE.fasta 
-        | sed –r ‘/^[A-Z]/s/^.{22}//’ 
-                | sed –r ‘/^[A-Z]/s/.{26}$//’ > NEWFILE.fasta
+grep -E -B1 “^forwardPrimerSequence.*reverseComplementOfReversePrimerSequence$” FILE.fasta 
+        | sed -r ‘/^[A-Z]/s/^.{22}//’ 
+                | sed -r ‘/^[A-Z]/s/.{26}$//’ > NEWFILE.fasta
 ```
 7. Filter by 6bp inline barcode <br/> 
 ```
-grep –E –B1 “^Barcode” FILENAME.fasta > NEWFILE.fasta
+grep -E -B1 “^Barcode” FILENAME.fasta > NEWFILE.fasta
 ```
 8. OTU Clustering 
     - Merge and count identical sequences <br/> 
         ```
-        usearch –fastx_uniques FILE.fasta –fastaout FILE.uniq.fasta -sizeout
+        usearch -fastx_uniques FILE.fasta -fastaout FILE.uniq.fasta -sizeout
         ```
     - OTU clustering and generation of centroid sequence database based on divergence cuttoff <br/> 
         ```
-        usearch -cluster_otus FILE.uniq.fasta –otus FILE.otus.fasta  -relabel OUT –minsize 10
+        usearch -cluster_otus FILE.uniq.fasta -otus FILE.otus.fasta  -relabel OUT -minsize 10
         ```
 9. BLAST against NCBI database <br/>
    QUERY.fasta are equal to finale fasta file with DNA code  <br/> 
@@ -94,10 +94,10 @@ grep –E –B1 “^Barcode” FILENAME.fasta > NEWFILE.fasta
    FORMATTER "6 staxids qseqid sseqid pident evalue sscinames scomnames sblastnames sskingdoms stitle salltitles sstrand"
 ```
 Run on your PC with a database
-blastn –db database.fasta –query QUERY.fasta –outfmt 6 –max_target_seqs 1 –out FILE.out
+blastn -db database.fasta -query QUERY.fasta -outfmt 6 -max_target_seqs 1 -out FILE.out
 
 Run on Blast Webserver with their databases 
-blastn –db nt –query QUERY.fasta –outfmt FORMATTER –max_target_seqs 1 –out FILE.out -remote
+blastn -db nt -query QUERY.fasta -outfmt FORMATTER -max_target_seqs 1 -out FILE.out -remote
 ```
 10. Generate OTU table by comparing all sequences against  database <br/> 
 ```
