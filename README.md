@@ -18,7 +18,8 @@ But they suck.
 2. A lot of binaries which should be added to the $path
 
   - FastQC (Quality check of sequences) <br/>
-    https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+    https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ </br>
+    Use the INSTALL.txt to add the fastqc.perl script to your /usr/bin folder
 
   - Pear (Assembly of paired reads and quality trimming) <br/>
     https://www.h-its.org/de/downloads/pear-academic/
