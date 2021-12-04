@@ -1,0 +1,6 @@
+#OTU ID	M01755
+Otu1	7573
+Otu3	271
+Otu2	361
+Otu4	38
+Otu5	13

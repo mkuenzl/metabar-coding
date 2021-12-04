@@ -2,14 +2,14 @@ import glob
 import os
 import re
 
-input_dir = 'paired/fasta-quality'
+input_dir = 'pairs/fasta-quality'
 
 output_dir = 'trimmed'
 
 os.makedirs(output_dir, exist_ok=True)
 
-forward_primer = 'ACACCGCCCGTCACCCT'
-reverse_primer = 'GGGCGGTGT'
+forward_primer = 'TAGAACAGGCTCCTCTAG'
+reverse_primer = 'GCATAGTGGGGTATCTAA'
 header = ''
 
 for filename in glob.iglob(input_dir + '/*_paired.assembled_q30.fasta'):

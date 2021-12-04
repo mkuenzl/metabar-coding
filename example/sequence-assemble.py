@@ -3,9 +3,11 @@ import os
 
 
 file_tag = '.fastq.gz'
-zip_directory = input("Please enter the directory path of your fastq.gz files: ")
+# zip_directory = input("Please enter the directory path of your fastq.gz files: ")
 
-paired_directory = zip_directory + '/paired'
+zip_directory = 'data'
+
+paired_directory = 'pairs'
 os.makedirs(paired_directory, exist_ok=True)
 
 forward_files = glob.iglob(zip_directory + '/*L001_R1_001.fastq.gz')

@@ -2,7 +2,8 @@ import glob
 import os
 
 file_tag = '.fastq.gz'
-assembled_directory = input("Please enter the directory path of your assembled files: ")
+# assembled_directory = input("Please enter the directory path of your assembled files: ")
+assembled_directory = 'pairs'
 
 fasta_directory = assembled_directory + '/fasta-quality'
 fastq_quality_directory = fasta_directory + '/fastq'

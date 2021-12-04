@@ -3,7 +3,7 @@ import glob
 import re
 
 # input_dir = input('Directory: ')
-input_dir = '/home/mkuen/git/metabar-coding/example/paired'
+input_dir = '/home/mkuen/git/metabar-coding/example/pairs'
 
 for filename in glob.iglob(input_dir + '/*assembled.fastq'):
     with fileinput.input(filename, inplace=1) as file_reader_writer:
