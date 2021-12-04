@@ -1,22 +1,27 @@
 #   2. Transform Quality Filtered Fastq Files to Fasta
+import fileinput
 import glob
 import os
 
-# input_dir = 'paired/fasta-quality'
 input_dir = 'trimmed'
-output_dir = 'unique'
+output_dir = 'otu'
 os.makedirs(output_dir, exist_ok=True)
+uniques_file = output_dir + '/uniques.fasta'
+merged_file = output_dir + '/merged.fasta'
+
 
 files = glob.iglob(input_dir + '/*.fasta')
+with open(merged_file, 'w') as output_file:
+    for line in fileinput.input(files):
+        output_file.write(line)
 
-for filename in files:
-    # print(filename)
-    output_filename = filename.replace('.fasta', '_unique.fasta').replace(input_dir, output_dir)
-    # print(output_filename)
-    os.system('usearch '
-              + '-fastx_uniques '
-              + filename
-              + ' -fastaout '
-              + output_filename
-              + ' -relabel Uniq '
-              + '-sizeout')
+os.system('ls -a')
+os.system('echo $PATH')
+os.system('usearch')
+os.system('usearch '
+          + '-fastx_uniques '
+          + merged_file
+          + ' -fastaout '
+          + uniques_file
+          + ' -relabel Uniq '
+          + '-sizeout')
