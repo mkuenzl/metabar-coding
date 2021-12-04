@@ -15,9 +15,6 @@ with open(merged_file, 'w') as output_file:
     for line in fileinput.input(files):
         output_file.write(line)
 
-os.system('ls -a')
-os.system('echo $PATH')
-os.system('usearch')
 os.system('usearch '
           + '-fastx_uniques '
           + merged_file
