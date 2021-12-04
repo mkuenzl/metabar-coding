@@ -10,7 +10,7 @@ os.makedirs(paired_directory, exist_ok=True)
 
 forward_files = glob.iglob(zip_directory + '/*L001_R1_001.fastq.gz')
 
-file_pairs = ((forward, forward.replace('*L001_R1_001.fastq.gz', '*L001_R2_001.fastq.gz')) for forward in forward_files)
+file_pairs = ((forward, forward.replace('L001_R1_001.fastq.gz', 'L001_R2_001.fastq.gz')) for forward in forward_files)
 for forward, backward in file_pairs:
     os.system('pear -f '
               + forward
