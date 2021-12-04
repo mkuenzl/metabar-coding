@@ -1,0 +1,5 @@
+54263	Otu1	gi|213136347|gb|EU880335.1|	100.000	3.77e-44	Mesotriton alpestris mitochondrion, partial genome	minus
+9606	Otu2	gi|2154024937|gb|MT242596.1|	100.000	5.85e-53	Homo sapiens isolate DH001 mitochondrion, complete genome	minus
+9615	Otu3	gi|1961335339|gb|MW524631.1|	100.000	2.08e-52	Canis lupus familiaris isolate VM161019-011 small subunit ribosomal RNA gene, partial sequence; mitochondrial	minus
+511044	Otu4	gi|851782708|gb|KP289200.1|	96.078	6.26e-37	Ambystoma bishopi mitochondrion, complete genome	minus
+9606	Otu5	gi|1961335566|gb|MW524740.1|	100.000	5.85e-53	Homo sapiens isolate VM22719-017 small subunit ribosomal RNA gene, partial sequence; mitochondrial	minus
