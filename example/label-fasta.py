@@ -3,9 +3,9 @@ import glob
 import re
 
 # input_dir = input('Directory: ')
-input_dir = '/home/mkuen/git/metabar-coding/example/pairs'
+input_dir = '/home/mkuen/Git/metabar-coding/example/trimmed'
 
-for filename in glob.iglob(input_dir + '/*assembled.fastq'):
+for filename in glob.iglob(input_dir + '/*.fasta'):
     with fileinput.input(filename, inplace=1) as file_reader_writer:
         line_counter = 1
         for line in file_reader_writer:
