@@ -11,7 +11,7 @@ for filename in glob.iglob(input_dir + '/*.fasta'):
         for line in file_reader_writer:
             if re.search(rf'^>', line):
                 file_id = filename.replace(input_dir + '/', '')\
-                    .replace('_S1_paired.assembled_q30_matchPrimer.fasta', '.')
+                    .replace('_paired.assembled_q30_matchPrimer.fasta', '.')
                 print(line.replace(line, '>' + file_id + str(line_counter)))
                 line_counter += 1
                 pass
