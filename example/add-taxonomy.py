@@ -24,3 +24,7 @@ with fileinput.input(filename, inplace=1) as file_reader_writer:
         # print taxonomy between Otu & Reads
 
     file_reader_writer.close()
+
+# awk -F '\t' -v OFS='\t' '{print $1, $2, $4}' query.txt | taxonkit reformat -I 1 -f "{k}|{p}|{c}|{o}|{f}|{g}|{s}" -F  | tee lineage.txt
+
+# awk 'FNR==NR{a[$2]=$0; next} ($1 in a) {print a[$1], $0}' lineage.txt otutable.txt > out.txt

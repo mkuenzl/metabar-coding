@@ -35,6 +35,9 @@ But they suck.
 
   - Blastn Taxonomy File (add folder of unpacked file to path with "export BLASTDB=path/to/folder")
     ftp://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz
+
+  - TaxonKit </br>
+    https://bioinf.shenwei.me/taxonkit/
    
 3. Some understanding of shell scripts. 
 
@@ -104,14 +107,5 @@ blastn -db nt -query QUERY.fasta -outfmt FORMATTER -max_target_seqs 1 -out FILE.
 ```
 usearch -usearch_global Database.fasta -db FILE.otus.fasta -strand plus -id 0.97 -otutabout otu_table.txt
 ```
-
-### Additional commands
-
-- ls *fasta
-- List all fasta sequence files in directory 
-- ls *fastq.gz | awk '{print "pear -f "$0" -r "$0" -m 500 -n 300 -v 50 -o "$0}' | grep -v _R2_ | sed 's/_R1_/_R2_/2' | sed 's/_/XXX/9' | sed 's/XXX.*//‘ > pear.sh
-- chmod a+x pear.sh
-- head pear.sh
-- ./pear.sh
 
 
