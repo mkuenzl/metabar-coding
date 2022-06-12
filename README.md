@@ -1,8 +1,10 @@
 # metabar-coding
-Documentation of the automation.
+With the help of NGS, it is possible to determine species richness without invasive intervention in the environment. Target primers can be used to analyze large numbers of samples using PCR and index PCR. For example, a water sample is taken from a body of water and analyzed for environmental DNA. Environmental DNA includes all DNA residues from e.g. urine, dander and saliva etc. The DNA is then isolated and amplified. This is then isolated and amplified. In the last step, the processed samples are illuminasequenced. The results of the sequencing have to be bioinformatically processed to be able to evaluate the information.
+
+## Documentation of the automation.
 
 There are a lot of programs and libaries which already do what we are trying to automate here. 
-But they suck.
+
 | program  | link |
 | ------------- | ------------- |
 | DECIPHER KEGG  | http://www2.decipher.codes/Downloads.html  |
