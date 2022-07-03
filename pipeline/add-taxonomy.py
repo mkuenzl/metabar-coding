@@ -4,7 +4,7 @@ import glob
 import os
 import re
 
-filename = 'otu/otutable.txt'
+filename = '../example/otu/otutable.txt'
 
 with fileinput.input(filename, inplace=1) as file_reader_writer:
     line_counter = 1

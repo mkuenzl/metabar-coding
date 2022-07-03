@@ -2,9 +2,9 @@ import glob
 import os
 import re
 
-input_dir = 'pairs/fasta-quality'
+input_dir = '../example/pairs/fasta-quality'
 
-output_dir = 'trimmed'
+output_dir = '../example/trimmed'
 
 os.makedirs(output_dir, exist_ok=True)
 
