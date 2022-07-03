@@ -1,58 +1,157 @@
-# metabar-coding
-With the help of NGS, it is possible to determine species richness without invasive intervention in the environment. Target primers can be used to analyze large numbers of samples using PCR and index PCR. For example, a water sample is taken from a body of water and analyzed for environmental DNA. Environmental DNA includes all DNA residues from e.g. urine, dander and saliva etc. The DNA is then isolated and amplified. This is then isolated and amplified. In the last step, the processed samples are illuminasequenced. The results of the sequencing have to be bioinformatically processed to be able to evaluate the information.
+<div id="top"></div>
 
-## Documentation of the automation.
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-There are a lot of programs and libaries which already do what we are trying to automate here. 
 
-| program  | link |
-| ------------- | ------------- |
-| DECIPHER KEGG  | http://www2.decipher.codes/Downloads.html  |
-| UNITE  | https://unite.ut.ee/repository.php  |
-| DADA  | https://benjjneb.github.io/dada2/training.html  |
-| Silva  | https://zenodo.org/record/1447330  |
- 
 
-### What do you need?
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/dna.png" alt="Logo" width="80" height="80">
+  </a>
 
-1. A linux system - we build on ubuntu
+  <h3 align="center">Metabar Coding Pipeline</h3>
 
-2. A lot of binaries which should be added to the $path
+  <p align="center">
+    Python scripts to automate the creation of OTU tables.
+    <br />
+    <a href="https://github.com/mkuenzl/metabar-coding"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/mkuenzl/metabar-coding">View Demo</a>
+    ·
+    <a href="https://github.com/mkuenzl/metabar-coding/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/mkuenzl/metabar-coding/issues">Request Feature</a>
+  </p>
+</div>
 
-  - FastQC (Quality check of sequences) <br/>
-    https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ </br>
-    Use the INSTALL.txt to add the fastqc.perl script to your /usr/bin folder
 
-  - Pear (Assembly of paired reads and quality trimming) <br/>
-    https://www.h-its.org/de/downloads/pear-academic/
 
-  - FastX Toolkit (Quality filter assembled fastq sequences and transform to fasta files)  <br/>
-    http://hannonlab.cshl.edu/fastx_toolkit/download.html
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-  - Usearch (Sequence dereplication, OTU clustering and building of OTU table) <br/>
-    https://www.drive5.com/usearch/download.html
 
-  - Blastn (Assign taxonomy to OTUs) <br/>
-    https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download
 
-  - Blastn Taxonomy File (add folder of unpacked file to path with "export BLASTDB=path/to/folder")
-    ftp://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-  - TaxonKit </br>
-    https://bioinf.shenwei.me/taxonkit/
-   
-3. Some understanding of shell scripts. 
+[![Product Name Screen Shot][product-screenshot]](https://www.sciencedirect.com/science/article/pii/S2351989418303500?via%3Dihub)
 
-4. Your Primertable
+With the help of NGS, it is possible to determine species richness without invasive intervention in the environment. 
+Target primers can be used to analyze large numbers of samples using PCR and index PCR. 
+For example, a water sample is taken from a body of water and analyzed for environmental DNA. 
+Environmental DNA includes all DNA residues from e.g. urine, dander and saliva etc. The DNA is then isolated and amplified. 
+This is then isolated and amplified. In the last step, the processed samples are illuminasequenced. 
+The results of the sequencing have to be bioinformatically processed to be able to evaluate the information.
 
-| species  | primer | direction | sequence | amplicon size |
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-| Newts	| 12S V5 Primer	| Forward	| TAGAACAGGCTCCTCTAG	| Min: 73BP Max:110BP |
-|  |                | Reverse	| TTAGATACCCCACTATGC |
-| Fire Salamander	| 12S Primer 	| Forward	| ACACCGCCCGTCACCCT	| Mean: 51BP Max 100BPG4 |
-||                            | Reverse	| GTAYACTTACCATGTTACGACTT |
+There are a lot of programs and libaries which already do what we are trying to automate here, but they are difficult to use. 
 
-## Follow the example
+* [DECIPHER KEGG](http://www2.decipher.codes/Downloads.html)
+* [UNITE](https://unite.ut.ee/repository.php)
+* [DADA](https://benjjneb.github.io/dada2/training.html)
+* [Silva](https://zenodo.org/record/1447330)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+### Built With
+
+A linux system - we build on ubuntu
+
+A lot of binaries which should be added to the `$path`
+
+* [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) (Quality check of sequences)
+* [Pear](https://www.h-its.org/de/downloads/pear-academic/) (Assembly of paired reads and quality trimming)
+* [FastX Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/download.html) (Quality filter assembled fastq sequences and transform to fasta files)
+* [Usearch](https://www.drive5.com/usearch/download.html) (Sequence dereplication, OTU clustering and building of OTU table)
+* [Blastn](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download) (Assign taxonomy to OTUs)
+* [TaxonKit](https://bioinf.shenwei.me/taxonkit/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+Prepare your primer sequences.
+
+| species           | primer        | direction | sequence           | amplicon size |
+|-------------------|---------------|----------|--------------------| ------------- |
+| Newts	         | 12S V5 Primer | Forward  | TAGAACAGGCTCCTCTAG | Min: 73BP Max:110BP |
+|                   |               | Reverse  | TTAGATACCCCACTATGC | |
+| Fire Salamander	 | 12S Primer 	 | Forward	| ACACCGCCCGTCACCCT	 | Mean: 51BP Max 100BPG4 |
+|                   |               | Reverse  | GTAYACTTACCATGTTACGACTT | |
+
+### Installation
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+This is an example of how to list things you need to use the software and how to install them.
+* FastQC 
+  ```sh
+  download from https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+  Use the INSTALL.txt to add the fastqc.perl script to your /usr/bin folder
+  ```
+
+* Blastn Taxonomy File 
+  ```sh
+  download ftp://ftp.ncbi.nlm.nih.gov/blast/db/taxdb.tar.gz
+  add folder of unpacked file to path with "export BLASTDB=path/to/folder"
+  ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Example usage without the use of this pipeline.
 
 1. Check the quality <br/>
 ```
@@ -110,4 +209,87 @@ blastn -db nt -query QUERY.fasta -outfmt FORMATTER -max_target_seqs 1 -out FILE.
 usearch -usearch_global Database.fasta -db FILE.otus.fasta -strand plus -id 0.97 -otutabout otu_table.txt
 ```
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- ROADMAP -->
+## Roadmap
+
+- [x] Add Changelog
+- [ ] Multi-language Support
+    - [ ] Chinese
+    - [ ] Spanish
+
+See the [open issues](https://github.com/mkuenzl/metabar-coding/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Moritz Künzl - mo.kuenzl@gmail.com
+
+Project Link: [https://github.com/mkuenzl/metabar-coding](https://github.com/mkuenzl/metabar-coding)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+
+* [Choose an Open Source License](https://choosealicense.com)
+* [Dna icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/dna)
+* [Krista M. Ruppert, Richard J. Kline and Md Saydur Rahman - Applications of environmental DNA metabarcoding in aquatic and terrestrial ecosystems](https://www.sciencedirect.com/science/article/pii/S2351989418303500?via%3Dihub) | licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/mkuenzl/metabar-coding.svg?style=for-the-badge
+[contributors-url]: https://github.com/mkuenzl/metabar-coding/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/mkuenzl/metabar-coding.svg?style=for-the-badge
+[forks-url]: https://github.com/mkuenzl/metabar-coding/network/members
+[stars-shield]: https://img.shields.io/github/stars/mkuenzl/metabar-coding.svg?style=for-the-badge
+[stars-url]: https://github.com/mkuenzl/metabar-coding/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mkuenzl/metabar-coding.svg?style=for-the-badge
+[issues-url]: https://github.com/mkuenzl/metabar-coding
+[license-shield]: https://img.shields.io/github/license/mkuenzl/metabar-coding.svg?style=for-the-badge
+[license-url]: https://github.com/mkuenzl/metabar-coding/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/moritz-kuenzl
+[product-screenshot]: images/Applications_of_environmental_DNA_metabarcoding_in_aquatic_and_terrestrial_ecosystems.jpg
 

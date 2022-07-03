@@ -3,8 +3,8 @@ import fileinput
 import glob
 import os
 
-input_dir = 'trimmed'
-output_dir = 'otu'
+input_dir = '../example/trimmed'
+output_dir = '../example/otu'
 os.makedirs(output_dir, exist_ok=True)
 uniques_file = output_dir + '/uniques.fasta'
 merged_file = output_dir + '/merged.fasta'

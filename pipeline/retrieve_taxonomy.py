@@ -2,7 +2,7 @@
 import re
 import urllib.request
 
-query_file = 'otu/query.txt'
+query_file = '../example/otu/query.txt'
 
 # taxonID = input("Please enter a Taxon Id: ")
 # print(taxonID)

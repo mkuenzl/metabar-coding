@@ -1,6 +1,6 @@
 import os
 
-input_dir = 'otu'
+input_dir = '../example/otu'
 otus_file = input_dir + '/otus.fasta'
 query_file = input_dir + '/query.txt'
 

@@ -3,7 +3,7 @@ import fileinput
 import glob
 import os
 
-output_dir = 'otu'
+output_dir = '../example/otu'
 
 uniques_file = output_dir + '/uniques.fasta'
 otus_file = output_dir + '/otus.fasta'

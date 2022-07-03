@@ -3,7 +3,7 @@ import fileinput
 import glob
 import os
 
-output_dir = 'otu'
+output_dir = '../example/otu'
 
 merged_file = output_dir + '/merged.fasta'
 otu_file = output_dir + '/otus.fasta'
