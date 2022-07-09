@@ -1,6 +1,3 @@
-#   2. Transform Quality Filtered Fastq Files to Fasta
-import fileinput
-import glob
 import os
 
 output_dir = '../example/otu'

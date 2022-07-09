@@ -1,7 +1,3 @@
-import gzip
-import os
-import shutil
-
 # From: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/INSTALL.txt
 # Running FastQC Interactively
 # ----------------------------
@@ -27,23 +23,32 @@ import shutil
 #
 # sudo ln -s /path/to/FastQC/fastqc /usr/local/bin/fastqc
 
-file_tag = '.fastq.gz'
-zip_directory = input("Please enter the directory path of your fastq.gz files: ")
-
-unzip_directory = zip_directory + '/fastq'
-os.makedirs(unzip_directory, exist_ok=True)
-
-#   1. unzip file
-for filename in os.listdir(zip_directory):
-    if filename.endswith(file_tag):
-        with gzip.open(zip_directory + '/' + filename, 'rb') as f_in:
-            with open(unzip_directory + '/' + filename.replace('.gz', ''), 'wb') as f_out:
-                shutil.copyfileobj(f_in, f_out)
+import gzip
+import os
+import shutil
 
 
-#   2. fastqc file
-fastqc_directory = zip_directory + '/fastqc'
-os.makedirs(fastqc_directory, exist_ok=True)
+def main():
+    file_tag = '.fastq.gz'
+    zip_directory = input("Please enter the directory path of your fastq.gz files: ")
 
-for filename in os.listdir(unzip_directory):
-    os.system('fastqc ' + unzip_directory + '/' + filename + ' --outdir=' + fastqc_directory)
+    unzip_directory = zip_directory + '/fastq'
+    os.makedirs(unzip_directory, exist_ok=True)
+
+    #   1. unzip file
+    for filename in os.listdir(zip_directory):
+        if filename.endswith(file_tag):
+            with gzip.open(zip_directory + '/' + filename, 'rb') as f_in:
+                with open(unzip_directory + '/' + filename.replace('.gz', ''), 'wb') as f_out:
+                    shutil.copyfileobj(f_in, f_out)
+
+    #   2. fastqc file
+    fastqc_directory = zip_directory + '/fastqc'
+    os.makedirs(fastqc_directory, exist_ok=True)
+
+    for filename in os.listdir(unzip_directory):
+        os.system('fastqc ' + unzip_directory + '/' + filename + ' --outdir=' + fastqc_directory)
+
+
+if __name__ == "__main__":
+    main()
