@@ -1,0 +1,8 @@
+blastn [db("nt"), query("otu_file"), outfmt("6 staxids qseqid sseqid pident evalue stitle sstrand"), max_target_seqs(1), out("output"), remote]
+usearch [cluster_otus("uniques_file"), otus("otu_file"), relabel("output"), minsize(10)]
+usearch [fastx_uniques("merged_file"), fastaout("uniques_file"), relabel("output"), sizeout]
+usearch [usearch_global("merged_file"), db("otu_file"), strand("plus"), id(0.97), otuabout("output")]
+primer [forward(""), reverse("")]
+pear [f("forward"), r("backward"), q(20), v(50), j(12) ,o("output)]
+fastq_quality_filter [Q33, p(90), q(30) ,i("input"), o("output")]
+fastq_to_fasta [Q33, i("input"), o("output")]
