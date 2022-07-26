@@ -2,6 +2,7 @@
 
 .idea
 venv
+bin
 
 # Mac Storage Files
 *.DS_Store
