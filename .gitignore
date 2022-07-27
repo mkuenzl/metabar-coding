@@ -3,6 +3,8 @@
 .idea
 venv
 bin
+FastQC
 
 # Mac Storage Files
 *.DS_Store
+*.tar
