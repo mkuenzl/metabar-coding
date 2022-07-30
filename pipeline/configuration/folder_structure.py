@@ -1,0 +1,6 @@
+ASSEMBLED = 'meta-analysis/fastq-paired'
+FASTA_QUALITY = 'meta-analysis/fasta-quality'
+FASTQ_QUALITY = 'meta-analysis/fastq-quality'
+FASTA_QUALITY_TRIMMED = 'meta-analysis/fasta-quality-trimmed'
+OTU = 'meta-analysis/otu'
+QUALITY_CHECK = 'meta-analysis/quality-check'

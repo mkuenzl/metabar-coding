@@ -5,9 +5,7 @@ config_file = configparser.ConfigParser()
 
 config_file['fastq_quality_filter'] = {
     'p': '90',
-    'q': '30',
-    'i': 'input',
-    'o': 'output'
+    'q': '30'
 }
 
 config_file['usearch_cluster'] = {
@@ -15,12 +13,6 @@ config_file['usearch_cluster'] = {
     'otus': 'otu_file',
     'relabel': 'output',
     'minsize': '10'
-}
-
-config_file['usearch_uniques'] = {
-    'fastx_uniques': 'merged_file',
-    'fastaout': 'uniques_file',
-    'relabel': 'output'
 }
 
 config_file['usearch_global'] = {
@@ -32,27 +24,20 @@ config_file['usearch_global'] = {
 }
 
 config_file['primer'] = {
-    'forward': '45',
-    'reverse': 'yes',
+    'forward': 'TAGAACAGGCTCCTCTAG',
+    'reverse': 'GCATAGTGGGGTATCTAA',
 }
 
 config_file['pear'] = {
-    #forward file path
-    'f': '',
-    #reverse file path
-    'r': '',
+    #forward file tag
+    'f': 'L001_R1_001.fastq.gz',
+    #reverse file tag
+    'r': 'L001_R2_001.fastq.gz',
     'q': '20',
     'v': '50',
     'j': '12',
     #output file name
     'o': ''
-}
-
-config_file['fastq_to_fasta'] = {
-    #input
-    'i': '',
-    #output
-    'o': '',
 }
 
 config_file['blastn'] = {

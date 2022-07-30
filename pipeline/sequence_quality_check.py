@@ -26,13 +26,14 @@
 import gzip
 import os
 import shutil
+import configuration.folder_structure as folder_structure
 
 
 def main():
     file_tag = '.fastq.gz'
     zip_directory = input("Please enter the directory path of your fastq.gz files: ")
 
-    unzip_directory = zip_directory + '/fastq'
+    unzip_directory = folder_structure.QUALITY_CHECK + '/fastq'
     os.makedirs(unzip_directory, exist_ok=True)
 
     #   1. unzip file
@@ -43,7 +44,7 @@ def main():
                     shutil.copyfileobj(f_in, f_out)
 
     #   2. fastqc file
-    fastqc_directory = zip_directory + '/fastqc'
+    fastqc_directory = folder_structure.QUALITY_CHECK + '/fastqc'
     os.makedirs(fastqc_directory, exist_ok=True)
 
     for filename in os.listdir(unzip_directory):

@@ -4,6 +4,10 @@
 venv
 bin
 FastQC
+meta-analysis
+
+#pycache
+*__pycache__
 
 # Mac Storage Files
 *.DS_Store
