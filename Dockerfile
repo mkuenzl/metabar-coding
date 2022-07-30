@@ -11,6 +11,8 @@ RUN chmod 755 /usr/FastQC/fastqc
 RUN ln -s /usr/FastQC/fastqc /usr/bin/fastqc
 
 
+#TODO add taxonkit files /.taxonkit & look up right position
+
 # docker build -t meta-test .
 # docker run -it -d meta-test
 # docker exec -it container-id /bin/bash
