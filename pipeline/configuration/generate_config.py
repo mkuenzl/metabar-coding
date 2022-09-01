@@ -29,14 +29,14 @@ config_file['primer'] = {
 }
 
 config_file['pear'] = {
-    #forward file tag
+    # forward file tag
     'f': 'L001_R1_001.fastq.gz',
-    #reverse file tag
+    # reverse file tag
     'r': 'L001_R2_001.fastq.gz',
     'q': '20',
     'v': '50',
     'j': '12',
-    #output file name
+    # output file name
     'o': ''
 }
 
@@ -48,7 +48,7 @@ config_file['blastn'] = {
     'out': 'output_file'
 }
 
-with open(r'configuration.ini', 'w') as config_file_object:
+with open(r'../../configuration.ini', 'w') as config_file_object:
     config_file.write(config_file_object)
     config_file_object.flush()
     config_file_object.close()
@@ -56,7 +56,7 @@ with open(r'configuration.ini', 'w') as config_file_object:
 print("Config file 'configurations.ini' created")
 
 # PRINT FILE CONTENT
-read_file = open("configuration.ini", "r")
+read_file = open("../../configuration.ini", "r")
 content = read_file.read()
 print("Content of the config file are:\n")
 print(content)

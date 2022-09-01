@@ -2,6 +2,7 @@ import fileinput
 import re
 import configuration.folder_structure as folder_structure
 
+
 def add_taxonomy():
     filename = folder_structure.OTU + '/otutable.txt'
 
@@ -24,11 +25,12 @@ def add_taxonomy():
 
         file_reader_writer.close()
 
+
 def create_lineage():
     # awk -F '\t' -v OFS='\t' '{print $1, $2, $4}' query.txt | taxonkit reformat -I 1 -f "{k}|{p}|{c}|{o}|{f}|{g}|{s}" -F  | tee lineage.txt
     return 0
 
+
 def create_otu():
     # awk 'FNR==NR{a[$2]=$0; next} ($1 in a) {print a[$1], $0}' lineage.txt otutable.txt > out.txt
     return 0
-    
